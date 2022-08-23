@@ -1,20 +1,22 @@
 import StaticNavBar from "./StaticNavBar";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import SignIn from "./SignIn";
-import Home from "./Home";
+import SignUp from "./SignUp";
+import HomePage from "./HomePage";
 
 function App() {
-  return (
-      <div style={{backgroundColor: "#85b2ff"}}>
-          <StaticNavBar />
-          <BrowserRouter style={{backgroundColor: "#85b2ff"}}>
-              <Routes>
-                <Route path="/" exact element={<Home/>}/>
-                <Route path="/sign/in" exact element={<SignIn/>}/>
-              </Routes>
-          </BrowserRouter>
-      </div>
-  );
+    return (
+            <nav>
+                <StaticNavBar/>
+                <div >
+                <Routes>
+                    <Route path="/sign/in" exact element={<SignIn/>}/>
+                    <Route path="/" exact element={<HomePage/>}/>
+                    <Route path="/sign/up" exact element={<SignUp/>}/>
+                </Routes>
+                </div>
+            </nav>
+    );
 }
 
 export default App;
