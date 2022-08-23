@@ -1,0 +1,25 @@
+
+:root {
+    --bs-border-color: #c9dfff !important;
+    --min-card-width: 550px !important;
+}
+
+.table {
+    --bs-table-striped-bg: #e9f2ff !important;
+    --bs-table-hover-bg: var(--bs-border-color) !important;
+    min-width: 80px !important;
+}
+
+.card, .card-header, .card-footer, .card-body, .table-footer {
+    min-width: var(--min-card-width) !important;
+}
+
+.table-footer {
+    background-color: var(--bs-border-color) !important;
+
+}
+
+.table-header {
+    background-color: var(--bs-border-color) !important;
+}
+

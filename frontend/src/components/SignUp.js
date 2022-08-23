@@ -1,21 +1,24 @@
 import {useState} from "react";
 import axios from "../api/axios"
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-const SignIn = () => {
+const SignUp = () => {
 
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const [phone, setPhone] = useState("")
+
     let navigate = useNavigate();
 
     const signIn = () => {
-        axios.post("/auth/login", {
+        axios.post("/signup", {
             username: username,
-            password: password
+            password: password,
+            phone:phone
         }).then(r => {
-            localStorage.setItem("JWT", r.data);
-            navigate("/")
+            alert(r.data)
+            navigate("/sign/in")
         })
     }
 
@@ -40,9 +43,15 @@ const SignIn = () => {
                                            className="form-control form-control-lg"/>
                                     <label className="form-label" htmlFor="password">Password</label>
                                 </div>
+                                <div className="form-outline mb-4">
+                                    <input onChange={(e) => setPhone(e.target.value)}
+                                           value={phone}
+                                           type="text" id="phone" className="form-control form-control-lg"/>
+                                    <label className="form-label" htmlFor="phone">Phone number</label>
+                                </div>
                                 <hr/>
                                 <button className="btn btn-primary btn-lg btn-block" type="submit"
-                                        onSubmit={signIn} onClick={signIn}>Submit
+                                        onClick={signIn}>Submit
                                 </button>
                             </div>
                         </div>
@@ -53,4 +62,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp
