@@ -1,6 +1,6 @@
 import Pagination from "react-bootstrap/Pagination";
 
-const PaginationBar = ({numberOfPages, currentPage, setCurrentPage}) => {
+const DataTableFooter = ({numberOfPages, currentPage, setCurrentPage}) => {
 
     const previousIndex = (() => currentPage - 1)();
     const nextIndex = (() => currentPage + 1)();
@@ -51,4 +51,4 @@ const PaginationBar = ({numberOfPages, currentPage, setCurrentPage}) => {
     );
 }
 
-export default PaginationBar;
+export default DataTableFooter;

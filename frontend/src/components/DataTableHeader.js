@@ -25,10 +25,10 @@ const DataTableHeader = ({categories, nameFilterValue, nameFilterValueChange, mi
             <label htmlFor="all-price-radio"  className="me-5">All</label><br/>
             <div className="vr"/>
             <br/>
-            <label style={{width:"20%"}}><b>Select category:</b></label>
-            <Dropdown>
-                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                    Category
+            <label style={{width:"30%"}} htmlFor="category"><b>Select category:</b></label>
+            <Dropdown  id="category" style={{width:"30%"}}>
+                <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{width:"90%"}}>
+                    {category}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     {renderCategories()}
