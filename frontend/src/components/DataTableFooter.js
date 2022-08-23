@@ -6,21 +6,31 @@ const PaginationBar = ({numberOfPages, currentPage, setCurrentPage}) => {
     const nextIndex = (() => currentPage + 1)();
 
     const stepBack = () => {
-        if (currentPage > 1)
+        if (currentPage > 1) {
+            window.scrollTo(0, 0);
             setCurrentPage(currentPage - 1);
+        }
     }
 
     const stepForward = () => {
-        if (currentPage === numberOfPages) return
-        else setCurrentPage(currentPage + 1);
+        if (currentPage < numberOfPages) {
+            window.scrollTo(0, 0);
+            setCurrentPage(currentPage + 1);
+        }
     }
 
     const jumpToFist = () => {
-        setCurrentPage(1)
+        if(currentPage!==1){
+            window.scrollTo(0, 0);
+            setCurrentPage(1)
+        }
     }
 
     const jumpToLast = () => {
-        setCurrentPage(numberOfPages)
+        if (currentPage < numberOfPages) {
+            window.scrollTo(0, 0);
+            setCurrentPage(numberOfPages)
+        }
     }
 
     return (
@@ -30,7 +40,7 @@ const PaginationBar = ({numberOfPages, currentPage, setCurrentPage}) => {
             <Pagination.Prev onClick={stepBack}/>
 
 
-            {previousIndex>=1 ? <Pagination.Item onClick={stepBack}>{previousIndex}</Pagination.Item> : null}
+            {previousIndex >= 1 ? <Pagination.Item onClick={stepBack}>{previousIndex}</Pagination.Item> : null}
             <Pagination.Item active>{currentPage}</Pagination.Item>
             {nextIndex <= numberOfPages ? <Pagination.Item onClick={stepForward}>{nextIndex}</Pagination.Item> : null}
 

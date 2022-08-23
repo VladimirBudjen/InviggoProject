@@ -49,7 +49,8 @@ public class WebSecurityConfig {
         http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
-                .authorizeRequests().antMatchers("/auth/**").permitAll()
+                .authorizeRequests()
+                .antMatchers("/auth/**").permitAll()
                 .antMatchers("/signup/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/foo").permitAll()

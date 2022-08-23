@@ -1,8 +1,8 @@
-INSERT INTO USERS (username, password, phone) VALUES ('vladimir', '123', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('milica', '123', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('luka', '123', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('lemara', '123', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('tamara', '123', '123');
+INSERT INTO USERS (username, password, phone) VALUES ('vladimir', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
+INSERT INTO USERS (username, password, phone) VALUES ('milica', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
+INSERT INTO USERS (username, password, phone) VALUES ('luka', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
+INSERT INTO USERS (username, password, phone) VALUES ('lemara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
+INSERT INTO USERS (username, password, phone) VALUES ('tamara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
 
 INSERT INTO ADVERT_TYPE(name) VALUES ('clothing');
 INSERT INTO ADVERT_TYPE(name) VALUES ('tools');
