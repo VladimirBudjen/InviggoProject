@@ -1,5 +1,7 @@
 package com.inviggoproject.service;
 
+import com.inviggoproject.dto.AuthenticationResponseDto;
+
 public interface AuthService {
-    String logIn(String username, String password);
+    AuthenticationResponseDto logIn(String username, String password);
 }

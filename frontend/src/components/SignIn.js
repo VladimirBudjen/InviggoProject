@@ -14,7 +14,8 @@ const SignIn = () => {
             username: username,
             password: password
         }).then(r => {
-            localStorage.setItem("JWT", r.data);
+            localStorage.setItem("JWT", r.data.jwt);
+            localStorage.setItem("UserName", r.data.userName);
             navigate("/")
         })
     }

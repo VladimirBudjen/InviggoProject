@@ -1,6 +1,7 @@
 package com.inviggoproject.controller;
 
 import com.inviggoproject.dto.AuthenticationRequestDto;
+import com.inviggoproject.dto.AuthenticationResponseDto;
 import com.inviggoproject.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,7 +22,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> createAuthenticationToken(@RequestBody AuthenticationRequestDto dto) {
+    public ResponseEntity<AuthenticationResponseDto> createAuthenticationToken(@RequestBody AuthenticationRequestDto dto) {
         return new ResponseEntity<>(authService.logIn(dto.getUsername(), dto.getPassword()), HttpStatus.OK);
     }
 }
