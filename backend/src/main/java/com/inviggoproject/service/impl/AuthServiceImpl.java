@@ -1,5 +1,6 @@
 package com.inviggoproject.service.impl;
 
+import com.inviggoproject.dto.AuthenticationResponseDto;
 import com.inviggoproject.model.User;
 import com.inviggoproject.security.auth.TokenUtils;
 import com.inviggoproject.service.AuthService;
@@ -21,11 +22,12 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String logIn(String username, String password) {
+    public AuthenticationResponseDto logIn(String username, String password) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 username, password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         User user = (User) authentication.getPrincipal();
-        return tokenUtils.generateToken(user.getUsername());
+        String userName = user.getUsername();
+        return new AuthenticationResponseDto(tokenUtils.generateToken(userName), userName) ;
     }
 }

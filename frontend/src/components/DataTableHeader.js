@@ -1,6 +1,6 @@
 import {Button, Dropdown, Form, Stack} from "react-bootstrap";
 
-const DataTableHeader = ({categories, nameFilterValue, nameFilterValueChange, mineOnly, mineOnlyChange, priceChange, category, categoryChange})=>{
+const DataTableHeader = ({categories, nameFilterValue, nameFilterValueChange, mineOnly, mineOnlyChange, priceChange, price, category, categoryChange})=>{
 
     const renderCategories = ()=>{
         return categories.map(c=>{
@@ -12,16 +12,15 @@ const DataTableHeader = ({categories, nameFilterValue, nameFilterValueChange, mi
 
         <Stack direction="horizontal" gap={1}>
             <Form.Control value={nameFilterValue} onChange={e=>nameFilterValueChange(e.target.value)} className="me-5" style={{width:"30%"}} placeholder="Search by name..."/>
-            <Button variant="secondary" className="me-3">Submit</Button>
             <div className="vr me-3" />
             <label htmlFor={"mine-check-box"} className="me-3" style={{width:"15%"}}><b>Mine only:</b></label>
-            <input onChange={e => {mineOnlyChange(!mineOnly);console.log(mineOnly)}} type="checkbox" id="mine-check-box" name="scales" />
+            <input onChange={() => mineOnlyChange(!mineOnly)} type="checkbox" id="mine-check-box" name="scales" />
             <br/><div className="vr"/><br/>
             <input onChange={() => priceChange("max")} type="radio" id="max-price-radio" name="fav_language" value="max"/>
             <label htmlFor="max-price-radio" className="me-5" style={{width:"25%"}}>Maximum price</label><br/>
             <input onChange={() => priceChange("min")} type="radio" id="min-price-radio" name="fav_language" value="min"/>
             <label htmlFor="min-price-radio" style={{width:"25%"}}>Minimum price</label><br/>
-            <input onChange={() => priceChange("all")} type="radio" id="all-price-radio" name="fav_language" value="CSS"/>
+            <input onChange={() => priceChange("all")} type="radio" id="all-price-radio" name="fav_language" value="all" checked={price==="all"}/>
             <label htmlFor="all-price-radio"  className="me-5">All</label><br/>
             <div className="vr"/>
             <br/>

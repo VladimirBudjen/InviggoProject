@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Data
-public class AdvertType {
+public class AdvertCategory {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,6 @@ public class AdvertType {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Advert> adverts = new HashSet<>();
 }
