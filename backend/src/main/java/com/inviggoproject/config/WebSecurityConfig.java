@@ -52,6 +52,7 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/signup/**").permitAll()
+                .antMatchers("/advert/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/foo").permitAll()
                 .anyRequest().authenticated().and()
