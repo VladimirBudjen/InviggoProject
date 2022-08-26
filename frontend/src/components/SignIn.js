@@ -16,7 +16,7 @@ const SignIn = () => {
         }).then(r => {
             localStorage.setItem("JWT", r.data.jwt);
             localStorage.setItem("UserName", r.data.userName);
-            navigate("/")
+            window.location.href='/'
         })
     }
 

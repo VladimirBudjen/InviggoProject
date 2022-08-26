@@ -6,12 +6,11 @@ import DataTableHeader from "./DataTableHeader";
 import DataTableBody from "./DataTableBody";
 import axios from "../api/axios";
 
+
 function HomePage() {
 
     const [items, setItems] = useState([])
-
     const categories = ['All', 'Clothing', 'Tools', 'Sports', 'Accessories', 'Furniture', 'Pets', 'Games', 'Books', 'Technology']
-    let userLoggedIn = false;
     const [currentPage, setCurrentPage] = useState(1);
     const [nameFilterValue, nameFilterValueChange] = useState('');
     const [mineOnly, mineOnlyChange] = useState(false);
@@ -20,11 +19,14 @@ function HomePage() {
 
     useEffect(()=>{
         setCurrentPage(1);
-    },[mineOnly, price, category, nameFilterValue])
+    },[items,mineOnly, price, category, nameFilterValue])
 
     const reducedData = () => {
         let newData = [...items]
+
+        newData=newData.sort((a, b) => b.creationDate - a.creationDate )
         newData = (category.toLowerCase() === "all" ? newData : newData.filter(item => item.category === category.toLowerCase()));
+        newData = (!mineOnly ? newData : newData.filter(item=> item.ownerUsername===localStorage.getItem("UserName")))
         newData = newData.filter(item=>{
             return item.name.toLowerCase().includes(nameFilterValue.toLowerCase());
         })
@@ -35,10 +37,14 @@ function HomePage() {
         return  newData
     };
 
-    useEffect(() => {
+    const refreshData=()=>{
         axios.get('advert/all').then(r => {
             setItems(r.data);
         })
+    }
+
+    useEffect( () => {
+       refreshData();
     }, [])
 
     return (
@@ -58,7 +64,8 @@ function HomePage() {
                                                  category={category} categoryChange={categoryChange}/>
                             </Card.Header>
                             <Card.Body className="table-header">
-                                <DataTableBody userLoggedIn={userLoggedIn} data={reducedData()} currentPage={currentPage}/>
+                                <DataTableBody
+                                   refreshFunc={refreshData} userLoggedIn={localStorage.getItem('UserName')!==null} data={reducedData()} currentPage={currentPage}/>
                             </Card.Body>
                             <Card.Footer className="text-muted d-flex justify-content-center table-footer">
                                 <DataTableFooter numberOfPages={Math.ceil(reducedData().length / 20)} currentPage={currentPage}
