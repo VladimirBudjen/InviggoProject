@@ -3,6 +3,8 @@ import {Routes, Route} from "react-router-dom";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import HomePage from "./HomePage";
+import UpdateAdvert from "./UpdateAdvert";
+import NewAdvert from "./NewAdvert";
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
                     <Route path="/sign/in" exact element={<SignIn/>}/>
                     <Route path="/" exact element={<HomePage/>}/>
                     <Route path="/sign/up" exact element={<SignUp/>}/>
+                    <Route path="/update/:code" exact element={<UpdateAdvert/>}/>
+                    <Route path="/new" exact element={<NewAdvert/>}/>
                 </Routes>
                 </div>
             </nav>

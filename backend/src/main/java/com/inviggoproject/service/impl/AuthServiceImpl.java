@@ -30,4 +30,9 @@ public class AuthServiceImpl implements AuthService {
         String userName = user.getUsername();
         return new AuthenticationResponseDto(tokenUtils.generateToken(userName), userName) ;
     }
+
+    @Override
+    public User getActiveUser() {
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    }
 }

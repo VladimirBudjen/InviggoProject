@@ -9,6 +9,20 @@ INSERT INTO USERS (username, password, phone) VALUES ('luka2', '$2a$04$Vbug2lwwJ
 INSERT INTO USERS (username, password, phone) VALUES ('lemara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
 INSERT INTO USERS (username, password, phone) VALUES ('tamara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
 
+INSERT INTO AUTHORITY(id, name) VALUES (1, 'ROLE_BASIC_USER');
+
+INSERT INTO user_authority(user_id, authority_id) VALUES (1, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (2, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (3, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (4, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (5, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (6, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (7, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (8, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (9, 1);
+INSERT INTO user_authority(user_id, authority_id) VALUES (10, 1);
+
+
 INSERT INTO ADVERT_CATEGORY(name) VALUES ('clothing');
 INSERT INTO ADVERT_CATEGORY(name) VALUES ('tools');
 INSERT INTO ADVERT_CATEGORY(name) VALUES ('sports');
@@ -87,7 +101,7 @@ INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,cre
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('ed260e1e-541d-44de-a9e9-bdb29df8475a','https://picsum.photos/id/73/200/300','Kobus leche robertsi',10517,7,5,'Barcarena','2022-06-10 07:12:25','Lechwe, kafue flats');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('f384df60-3104-4cb1-91c9-5b8317dc9622','https://picsum.photos/id/74/200/300','Mabuya spilogaster',65777,6,3,'Cieplice Śląskie Zdrój','2018-09-15 01:00:48','African skink');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('25e96699-3885-4442-9dbb-c730a80276f6','https://picsum.photos/id/75/200/300','Nectarinia chalybea',33514,7,4,'Petukhovo','2021-05-24 04:41:03','Sunbird, lesser double-collared');
-INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('796391da-a252-4222-80d2-679ab699ebb4','https://picsum.photos/id/76/200/300','Manouria emys',4990,9,5,'Nerópolis','2022-08-13 04:19:23','Burmese black mountain tortoise');
+INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('796391da-a252-4222-80d2-679ab699ebb4','https://picsum.photos/id/76/200/300','Manouria emys',4990,9,5,'Nerópolis','2022-03-13 04:19:23','Burmese black mountain tortoise');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('ddb49c64-4196-45e3-b553-90c6c98de2a1','https://picsum.photos/id/77/200/300','Ceratotherium simum',74844,8,1,'Zabrušany','2022-05-06 06:55:26','Rhinoceros, square-lipped');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('f280f28e-004a-4bac-918e-f23c806945c4','https://picsum.photos/id/78/200/300','Anser caerulescens',79382,4,4,'Patos Fshat','2021-02-25 21:05:42','Goose, snow');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('5381c23a-7a91-4e08-a466-ac1178eef00e','https://picsum.photos/id/79/200/300','Podargus strigoides',77622,2,4,'Guojiazhuang','2020-05-20 02:28:45','Frogmouth, tawny');
@@ -95,11 +109,11 @@ INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,cre
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('17edb964-e06f-4a6b-88a0-8aab5d097f51','https://picsum.photos/id/82/200/300','Macropus fuliginosus',84773,6,2,'Cawayan','2018-05-25 08:38:57','Kangaroo, black-faced');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('fab59eba-3710-461f-a49c-736afbea53f2','https://picsum.photos/id/83/200/300','Castor fiber',32740,9,1,'Gaojimiao','2019-12-02 04:09:18','Eurasian beaver');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('c144a2b8-ae22-4f03-ba77-f9abbf49b92e','https://picsum.photos/id/84/200/300','Cercatetus concinnus',55921,1,5,'Ivanivka','2022-01-20 17:47:32','Western pygmy possum');
-INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('72b8e4d6-77ec-41c0-b4c5-7cb6e8ff2627','https://picsum.photos/id/85/200/300','Zonotrichia capensis',65,9,2,'Vokhaïkó','2022-08-04 10:16:09','Sparrow, rufous-collared');
+INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('72b8e4d6-77ec-41c0-b4c5-7cb6e8ff2627','https://picsum.photos/id/85/200/300','Zonotrichia capensis',65,9,2,'Vokhaïkó','2022-03-04 10:16:09','Sparrow, rufous-collared');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('b6bbb332-0431-4de0-ae25-11fa26e17862','https://picsum.photos/id/186/200/300','Colaptes campestroides',12734,9,2,'Okpoga','2018-09-25 17:43:59','Campo flicker');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('07edde4c-17b1-4921-ac33-ecb83a35e3e8','https://picsum.photos/id/87/200/300','Chlamydosaurus kingii',7933,8,3,'Villa Bisonó','2021-12-18 22:29:42','Frilled dragon');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('2dbdc522-475a-490f-971f-19bf81ea10c7','https://picsum.photos/id/88/200/300','Dendrocitta vagabunda',71862,7,3,'Dalu','2019-07-24 07:44:32','Indian tree pie');
-INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('3717b3be-fcf3-4dbe-9a8c-504b60460213','https://picsum.photos/id/89/200/300','Leprocaulinus vipera',59960,10,5,'Tripoli','2022-08-21 21:49:13','Stick insect');
+INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('3717b3be-fcf3-4dbe-9a8c-504b60460213','https://picsum.photos/id/89/200/300','Leprocaulinus vipera',59960,10,5,'Tripoli','2022-03-21 21:49:13','Stick insect');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('e86406be-14b0-4e63-b0fe-2bd45b3d154d','https://picsum.photos/id/91/200/300','Pteronura brasiliensis',34889,6,5,'Sobreira','2019-05-13 08:46:05','Otter, brazilian');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('80308d4c-9a38-427d-bca6-8e546698062a','https://picsum.photos/id/92/200/300','unavailable',14883,1,4,'Tenggong','2019-06-07 19:55:57','Flying fox (unidentified)');
 INSERT INTO ADVERT(code,image_url,description,price,user_id,category_id,city,creation_date,name) VALUES ('f64ac35e-c163-4d7b-8c5a-f8558260bd11','https://picsum.photos/id/93/200/300','Callorhinus ursinus',31803,1,3,'Silodakon','2018-04-27 18:02:24','Seal, northern fur');
