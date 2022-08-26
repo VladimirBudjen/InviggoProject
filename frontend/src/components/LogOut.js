@@ -1,9 +1,7 @@
 import Nav from "react-bootstrap/Nav";
-import {useNavigate} from "react-router-dom";
 
-const LogOut = ()=>{
-    let navigate = useNavigate()
-    const onClick = (e)=>{e.preventDefault(); localStorage.clear();navigate("/")}
-    return <Nav.Link  className={'nav-btn'} onClick={onClick}>Sign out</Nav.Link>
+const LogOut = ({className})=>{
+    const onClick = (e)=>{e.preventDefault(); localStorage.clear();window.location.href="/";}
+    return <Nav.Link  className={className} onClick={onClick}>Sign out</Nav.Link>
 }
 export default LogOut

@@ -18,7 +18,7 @@ public class User implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -37,6 +37,12 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Advert> adverts = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private List<Role> roles;
+
     public User(String username, String password, String phone) {
         this.username = username;
         this.password = password;
@@ -50,7 +56,7 @@ public class User implements UserDetails {
     @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(()->"USER_ROLE");
+        return roles;
     }
 
     @JsonIgnore
