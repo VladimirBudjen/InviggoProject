@@ -14,21 +14,21 @@ const UpdateAdvert = () => {
     }
 
     const getAdvert=()=>{
-        axios.get('advert/code/' + code).then(r => {
+        axios.get(`advert/code/${code}`).then(r => {
             setAdvert(r.data)
         })
     }
 
     useEffect(() => {
-        axios.get('advert/code/' + code).then(r => {
+        axios.get(`advert/code/${code}`).then(r => {
             setAdvert(r.data)
         })
     }, [code])
 
-    function update() {
+    const update=()=> {
         axios.put('advert/',advert).then(r => {
             alert(r.data)
-            navigate('/', { replace: true })
+            navigate(-1)
         })
     }
 
@@ -42,7 +42,7 @@ const UpdateAdvert = () => {
                                         <h3 className="mb-5">Edit advert</h3>
                                         <div className="form-outline mb-4">
                                         </div>
-                                        <Form>
+                                        <Form onSubmit={event => event.preventDefault()}>
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Name</Form.Label>
                                                 <Form.Control type="text"  value={advert.name} onInput={event => setAdvert({

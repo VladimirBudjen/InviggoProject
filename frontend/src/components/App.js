@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 import HomePage from "./HomePage";
 import UpdateAdvert from "./UpdateAdvert";
 import NewAdvert from "./NewAdvert";
+import AdvertView from "./AdvertView";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/sign/up" exact element={<SignUp/>}/>
                     <Route path="/update/:code" exact element={<UpdateAdvert/>}/>
                     <Route path="/new" exact element={<NewAdvert/>}/>
+                    <Route path="/advert/:code" exact element={<AdvertView/>}/>
                 </Routes>
                 </div>
             </nav>
