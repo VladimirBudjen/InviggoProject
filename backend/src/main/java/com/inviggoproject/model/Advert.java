@@ -19,10 +19,10 @@ public class Advert {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 4096)
     private String description;
 
-    @Column(length = 1024)
+    @Column(length = 4096)
     private String imageUrl;
 
     @Column
