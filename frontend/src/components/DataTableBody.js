@@ -19,12 +19,12 @@ const DataTableBody = ({data, userLoggedIn, currentPage, refreshFunc}) => {
     const renderData = () => {
         return data.slice((currentPage - 1) * 20, currentPage * 20)
             .map((item, index) => {
-                return <tr key={index}>
+                return <tr key={index} onClick={()=>navigate(`advert/${item.code}`)}>
                     <td>{index + (currentPage - 1) * 20 + 1}</td>
                     <td style={{maxWidth:"260px"}}><img alt="img" style={{maxHeight: "200px", maxWidth:"250px", width:"230px"}}
                              src={item.imageUrl}/>
                     </td>
-                    <td style={{maxWidth:"200px"}}>{item.name} {item.creationDate}</td>
+                    <td style={{maxWidth:"200px"}}>{item.name}</td>
                     <td>{item.price}</td>
                     <td style={{maxWidth:"200px"}}>{item.city}</td>
                     <td>{item.category}</td>
@@ -35,14 +35,14 @@ const DataTableBody = ({data, userLoggedIn, currentPage, refreshFunc}) => {
                                 <tr>
                                     <td style={{textAlign: "center"}}>
                                         <button style={{marginTop: "65%", minWidth: "150%"}}
-                                               onClick={()=>updateItem(item)} className="btn btn-dark">Edit
+                                               onClick={(e)=>{e.stopPropagation(); updateItem(item)}} className="btn btn-dark">Edit
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style={{textAlign: "center"}}>
                                         <button style={{marginTop: "20%", minWidth: "150%"}} className="btn btn-danger"
-                                                onClick={()=>deleteItem(item)}>Delete
+                                                onClick={(e)=>{e.stopPropagation(); deleteItem(item)}}>Delete
                                         </button>
                                     </td>
                                 </tr>

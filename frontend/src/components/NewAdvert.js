@@ -15,10 +15,10 @@ const NewAdvert = ()=>{
     useEffect(() => {
     }, [])
 
-    function create() {
+    const create=()=>{
         axios.post('advert',advert).then(r => {
             alert(r.data)
-            navigate('/', { replace: true })
+            navigate(-1)
         })
     }
 
@@ -32,7 +32,7 @@ const NewAdvert = ()=>{
                                 <h3 className="mb-5">New advert</h3>
                                 <div className="form-outline mb-4">
                                 </div>
-                                <Form>
+                                <Form onSubmit={event => event.preventDefault()}>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control type="text"  value={advert.name} onInput={event => setAdvert({

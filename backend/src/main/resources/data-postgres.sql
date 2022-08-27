@@ -1,13 +1,13 @@
-INSERT INTO USERS (username, password, phone) VALUES ('vladimir', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('milica', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('luka', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('lemara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('tamara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('vladimir2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('milica2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('luka2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('lemara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
-INSERT INTO USERS (username, password, phone) VALUES ('tamara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '123');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('vladimir', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('milica', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('luka', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('lemara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('tamara', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('vladimir2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333','2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('milica2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('luka2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('lemara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
+INSERT INTO USERS (username, password, phone, registration_date) VALUES ('tamara2', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', '555-333', '2022-03-03 13:34:12');
 
 INSERT INTO AUTHORITY(id, name) VALUES (1, 'ROLE_BASIC_USER');
 
