@@ -46,6 +46,7 @@ public class User implements UserDetails {
         this.password = password;
         this.registrationDate = new Date();
         this.phone = phone;
+        this.adverts = new HashSet<>();
     }
 
     public User() {

@@ -1,6 +1,7 @@
 package com.inviggoproject.service.impl;
 
 import com.inviggoproject.model.User;
+import com.inviggoproject.repository.RolesRepository;
 import com.inviggoproject.repository.UserRepository;
 import com.inviggoproject.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,15 +10,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+    private final RolesRepository rolesRepository;
 
-    public UserServiceImpl(PasswordEncoder passwordEncoder, UserRepository userRepository) {
+    public UserServiceImpl(PasswordEncoder passwordEncoder, UserRepository userRepository, RolesRepository rolesRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
+        this.rolesRepository = rolesRepository;
     }
 
     @Override
@@ -28,6 +33,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public User save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(List.of(rolesRepository.findByName("ROLE_BASIC_USER")));
         return this.userRepository.save(user);
     }
 
