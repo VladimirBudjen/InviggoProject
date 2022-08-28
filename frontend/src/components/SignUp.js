@@ -9,7 +9,7 @@ const SignUp = () => {
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("")
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const signIn = () => {
         axios.post("/signup", {
@@ -19,7 +19,7 @@ const SignUp = () => {
         }).then(r => {
             alert(r.data)
             navigate("/sign/in")
-        })
+        }).catch(e=>alert(e?.response?.data))
     }
 
     return (
@@ -29,7 +29,7 @@ const SignUp = () => {
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div className="card shadow-2-strong" style={{borderRadius: "1rem"}}>
                             <div className="card-body p-5 text-center">
-                                <h3 className="mb-5">Sign in</h3>
+                                <h3 className="mb-5">Sign up</h3>
                                 <div className="form-outline mb-4">
                                     <input onChange={(e) => setUserName(e.target.value)}
                                            value={username}
