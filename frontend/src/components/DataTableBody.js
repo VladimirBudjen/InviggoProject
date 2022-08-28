@@ -17,7 +17,7 @@ const DataTableBody = ({data, userLoggedIn, currentPage, refreshFunc}) => {
     }
 
     const renderData = () => {
-        return data.slice((currentPage - 1) * 20, currentPage * 20)
+        return data
             .map((item, index) => {
                 return <tr key={index} onClick={()=>navigate(`advert/${item.code}`)}>
                     <td>{index + (currentPage - 1) * 20 + 1}</td>
