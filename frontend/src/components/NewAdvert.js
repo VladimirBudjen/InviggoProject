@@ -19,7 +19,7 @@ const NewAdvert = ()=>{
         axios.post('advert',advert).then(r => {
             alert(r.data)
             navigate(-1)
-        })
+        }).catch(e=>alert(e?.response?.data))
     }
 
     return (
