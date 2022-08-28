@@ -12,39 +12,38 @@ function HomePage() {
     const [items, setItems] = useState([])
     const categories = ['All', 'Clothing', 'Tools', 'Sports', 'Accessories', 'Furniture', 'Pets', 'Games', 'Books', 'Technology']
     const [currentPage, setCurrentPage] = useState(1);
+    const [numberOfPages, setNumberOfPages] = useState(1);
     const [nameFilterValue, nameFilterValueChange] = useState('');
     const [mineOnly, mineOnlyChange] = useState(false);
     const [price, priceChange] = useState("all");
     const [category, categoryChange] = useState(categories[0]);
 
+    useEffect(() => {
+        currentPage!==1?setCurrentPage(1):refreshData();
+    }, [mineOnly, price, category, nameFilterValue])
+
     useEffect(()=>{
-        setCurrentPage(1);
-    },[items,mineOnly, price, category, nameFilterValue])
+        refreshData()
+    },[currentPage])
 
-    const reducedData = () => {
-        let newData = [...items]
-
-        newData=newData.sort((a, b) => b.creationDate - a.creationDate )
-        newData = (category.toLowerCase() === "all" ? newData : newData.filter(item => item.category === category.toLowerCase()));
-        newData = (!mineOnly ? newData : newData.filter(item=> item.ownerUsername===localStorage.getItem("UserName")))
-        newData = newData.filter(item=>{
-            return item.name.toLowerCase().includes(nameFilterValue.toLowerCase());
-        })
-        if (price === "min" && newData.length>0) {
-            newData = [newData.reduce((a, b) => a.price <= b.price ? a : b)]
-        } else if (price === "max"  && newData.length>0)
-            newData = [newData.reduce((a, b) => a.price >= b.price ? a : b)]
-        return  newData
-    };
-
-    const refreshData=()=>{
-        axios.get('advert/all').then(r => {
-            setItems(r.data);
+    const refreshData = () => {
+        const filterData = {
+            "name": nameFilterValue,
+            "ownerUserName": localStorage.getItem("UserName") !== null && mineOnly ? localStorage.getItem("UserName") : '',
+            "categoryName": category.toLowerCase(),
+            "page": currentPage - 1,
+            "pageSize": "20",
+            "minOrMax": price
+        }
+        axios.post('advert/bypage', filterData).then(r => {
+            setItems(r.data.adverts);
+            setNumberOfPages(r.data.numberOfPages);
         })
     }
 
-    useEffect( () => {
-       refreshData();
+    useEffect(() => {
+        setCurrentPage(1);
+        refreshData();
     }, [])
 
     return (
@@ -65,10 +64,11 @@ function HomePage() {
                             </Card.Header>
                             <Card.Body className="table-header">
                                 <DataTableBody
-                                   refreshFunc={refreshData} userLoggedIn={localStorage.getItem('UserName')!==null} data={reducedData()} currentPage={currentPage}/>
+                                    refreshFunc={refreshData} userLoggedIn={localStorage.getItem('UserName') !== null}
+                                    data={items} currentPage={currentPage}/>
                             </Card.Body>
                             <Card.Footer className="text-muted d-flex justify-content-center table-footer">
-                                <DataTableFooter numberOfPages={Math.ceil(reducedData().length / 20)} currentPage={currentPage}
+                                <DataTableFooter numberOfPages={numberOfPages} currentPage={currentPage}
                                                  setCurrentPage={setCurrentPage}
                                 />
                             </Card.Footer>

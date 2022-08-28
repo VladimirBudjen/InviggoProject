@@ -1,7 +1,6 @@
 package com.inviggoproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,7 +10,6 @@ import java.util.*;
 
 @Entity
 @Table(name = "USERS")
-@Data
 public class User implements UserDetails {
 
     @Serial
@@ -81,5 +79,65 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public Date getRegistrationDate() {
+        return this.registrationDate;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public Set<Advert> getAdverts() {
+        return this.adverts;
+    }
+
+    public List<Role> getRoles() {
+        return this.roles;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAdverts(Set<Advert> adverts) {
+        this.adverts = adverts;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String toString() {
+        return "User(id=" + this.getId() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + ", registrationDate=" + this.getRegistrationDate() + ", phone=" + this.getPhone()+ ")";
     }
 }

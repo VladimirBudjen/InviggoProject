@@ -1,8 +1,6 @@
 package com.inviggoproject.controller;
 
-import com.inviggoproject.dto.CreateAdvertRequestDto;
-import com.inviggoproject.dto.FindAdvertResponseDto;
-import com.inviggoproject.dto.UpdateAdvertRequestDto;
+import com.inviggoproject.dto.*;
 import com.inviggoproject.exception.ExceptionUtils;
 import com.inviggoproject.exception.UnauthorizedActionException;
 import com.inviggoproject.service.AdvertService;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,9 +27,11 @@ public class AdvertController {
         this.advertService = advertService;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<FindAdvertResponseDto>> findAll() {
-        return new ResponseEntity<>(advertService.findAllSortedByDate().stream()
+    @PostMapping("/bypage")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<FindAllAdvertsByPageResponseDto> findAllByPage(@RequestBody FindAllAdvertsByPageRequestDto dto) {
+        var advertsWithTotalPagesDto = advertService.findAllWithPages(dto);
+        return new ResponseEntity<>(new FindAllAdvertsByPageResponseDto(advertsWithTotalPagesDto.getAdverts().stream()
                 .map(advert ->
                         new FindAdvertResponseDto(
                                 advert.getName(),
@@ -44,7 +43,7 @@ public class AdvertController {
                                 advert.getCode(),
                                 advert.getUser().getUsername(),
                                 advert.getCreationDate())
-                ).collect(Collectors.toList()), HttpStatus.OK);
+                ).collect(Collectors.toList()), advertsWithTotalPagesDto.getTotalPages()), HttpStatus.OK);
     }
 
     @GetMapping("/code/{code}")
