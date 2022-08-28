@@ -1,6 +1,6 @@
 package com.inviggoproject.controller;
 
-import com.inviggoproject.dto.GetUserInfoDto;
+import com.inviggoproject.dto.GetUserInfoResponseDto;
 import com.inviggoproject.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,8 +18,8 @@ public class UserController {
     }
 
     @GetMapping("/{userName}")
-    public ResponseEntity<GetUserInfoDto> getUserInfo(@PathVariable String userName) {
+    public ResponseEntity<GetUserInfoResponseDto> getUserInfo(@PathVariable String userName) {
         var user = userService.findByUsername(userName);
-        return new ResponseEntity<>(new GetUserInfoDto(user.getPhone(), user.getRegistrationDate()), HttpStatus.CREATED);
+        return new ResponseEntity<>(new GetUserInfoResponseDto(user.getPhone(), user.getRegistrationDate()), HttpStatus.CREATED);
     }
 }
