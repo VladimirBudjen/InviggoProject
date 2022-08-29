@@ -5,7 +5,11 @@
 <hr>
 
 open cli in frontend folder and run:
-npm intstall
+***npm intstall***
+
+<hr>
+all passwords are: ***123***
+<hr>
 
 Since this app is using self signed certificates (for https demonstration in development phase), please open incognito mode in your browser, click ***advanced*** and than click 
 ***'Proceed to localhost (unsafe)'***.
